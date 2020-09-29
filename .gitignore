@@ -1,2 +1,18 @@
+# Scala ignores
 *.class
 *.log
+
+# SBT ignores
+target/
+dist/*
+.cache
+.history
+.lib/
+lib_managed/
+src_managed/
+project/boot/
+
+# IntelliJ Ignores
+.idea/*
+.run/*
+out/
