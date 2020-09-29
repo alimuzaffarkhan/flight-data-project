@@ -3,21 +3,16 @@ package au.com.crixxi.flightdataproject.jobs
 import au.com.crixxi.flightdataproject.FlightDataApplication
 import au.com.crixxi.flightdataproject.persistance.CsvDataStore
 import au.com.crixxi.flightdataproject.transformations.impl._
+import au.com.crixxi.flightdataproject.transformations.questionthree.LongestRun
 
-object QuestionTwoJob extends FlightDataApplication {
+object QuestionThreeJob extends FlightDataApplication {
 
   val flightDataCsv = CsvDataStore(
     "d:/Workspaces/flight-data-specification/flightData.csv"
   ).read
 
-  val passengerCsv = CsvDataStore(
-    "d:/Workspaces/flight-data-specification/passengers.csv"
-  ).read
-
   val transformations = {
-    MapGroupCountColumn("number_of_flights", "passengerId") |
-      FilterLimitRows(100, FilterLimitRows.Descending, "number_of_flights") |
-      EquiJoinTransformation(passengerCsv, "left", "passengerId")
+    LongestRun("longest_run")
   }
 
   transformations.transform(flightDataCsv).show
