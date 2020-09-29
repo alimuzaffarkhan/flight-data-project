@@ -6,10 +6,7 @@ import au.com.crixxi.flightdataproject.transformations.impl._
 import org.apache.spark.sql.functions._
 
 object QuestionOneJob extends FlightDataApplication {
-
-  val inputCsv = CsvDataStore(
-    "d:/Workspaces/flight-data-specification/flightData.csv"
-  ).read
+  val inputCsv = CsvDataStore(dataConf.flightData).read
 
   val transformations = {
     MapToDateColumn("date") |

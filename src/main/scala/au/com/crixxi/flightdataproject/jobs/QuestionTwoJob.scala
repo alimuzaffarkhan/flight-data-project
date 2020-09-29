@@ -6,13 +6,9 @@ import au.com.crixxi.flightdataproject.transformations.impl._
 
 object QuestionTwoJob extends FlightDataApplication {
 
-  val flightDataCsv = CsvDataStore(
-    "d:/Workspaces/flight-data-specification/flightData.csv"
-  ).read
+  val flightDataCsv = CsvDataStore(dataConf.flightData).read
 
-  val passengerCsv = CsvDataStore(
-    "d:/Workspaces/flight-data-specification/passengers.csv"
-  ).read
+  val passengerCsv = CsvDataStore(dataConf.passengers).read
 
   val transformations = {
     MapGroupCountColumn("number_of_flights", "passengerId") |
