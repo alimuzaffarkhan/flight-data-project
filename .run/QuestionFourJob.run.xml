@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="QuestionFourJob" type="Application" factoryName="Application">
+    <envs>
+      <env name="HADOOP_HOME" value="D:\Workspaces\winutils-master\hadoop-2.7.7" />
+    </envs>
+    <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
+    <option name="MAIN_CLASS_NAME" value="au.com.crixxi.flightdataproject.jobs.QuestionFourJob" />
+    <module name="flight-data-project" />
+    <shortenClasspath name="MANIFEST" />
+    <option name="VM_PARAMETERS" value="-Dspark.master=local[*]" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

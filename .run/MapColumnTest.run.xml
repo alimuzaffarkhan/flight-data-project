@@ -1,0 +1,21 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="MapColumnTest" type="ScalaTestRunConfiguration" factoryName="ScalaTest" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
+    <module name="flight-data-project" />
+    <option name="allowRunningInParallel" value="false" />
+    <option name="selectedOptions">
+      <set />
+    </option>
+    <option name="testKind" value="Class" />
+    <option name="envs">
+      <map>
+        <entry key="HADOOP_HOME" value="D:\Workspaces\winutils-master\hadoop-2.7.7" />
+      </map>
+    </option>
+    <option name="shortenClasspath" value="MANIFEST" />
+    <option name="testClassPath" value="au.com.crixxi.flightdataproject.transformations.impl.MapColumnTest" />
+    <option name="workingDirectory" value="D:\Workspaces\flight-data-project" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
