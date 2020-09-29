@@ -19,8 +19,9 @@ libraryDependencies += "org.apache.spark" %% "spark-sql" % "3.0.1" % "provided"
 libraryDependencies += "org.apache.spark" %% "spark-hive" % "3.0.1" % "provided"
 
 // https://mvnrepository.com/artifact/org.scalatest/scalatest
-libraryDependencies += "org.scalactic" %% "scalactic" % "3.2.0"
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.0" % "test"
+libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.8"
+// https://mvnrepository.com/artifact/org.scalatest/scalatest
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.8" % Test
 
 // https://mvnrepository.com/artifact/com.holdenkarau/spark-testing-base
 libraryDependencies += "com.holdenkarau" %% "spark-testing-base" % "2.4.5_0.14.0" % Test
@@ -41,5 +42,9 @@ libraryDependencies += "com.github.scopt" %% "scopt" % "3.7.1"
 // https://stackoverflow.com/questions/30414782/proper-way-to-make-a-spark-fat-jar-using-sbt
 assemblyMergeStrategy in assembly := {
   case PathList("META-INF", xs @ _*) => MergeStrategy.discard
-  case x                             => MergeStrategy.first
+  case x => MergeStrategy.first
 }
+
+parallelExecution in Test := false
+fork in Test := true
+assembly / test := {}
