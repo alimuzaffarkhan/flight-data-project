@@ -1,18 +1,11 @@
 package au.com.crixxi.flightdataproject.jobs
 
-import org.apache.spark.sql.SparkSession
+import au.com.crixxi.flightdataproject.FlightDataApplication
+import au.com.crixxi.flightdataproject.persistance.CsvDataStore
 
-object TestSparkApplication extends App {
-  val spark = SparkSession
-    .builder()
-    .appName("TestSparkApplication")
-    .master("local[*]")
-    .enableHiveSupport()
-    .getOrCreate()
-
-  spark.read
-    .format("csv")
-    .option("header", "true")
-    .load("d:/Workspaces/flight-data-specification/flightData.csv")
-    .show
+object TestSparkApplication extends FlightDataApplication {
+  val flightDataDf = CsvDataStore(
+    "d:/Workspaces/flight-data-specification/flightData.csv"
+  ).read
+  flightDataDf.show
 }
