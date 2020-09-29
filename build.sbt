@@ -1,4 +1,3 @@
-// scalastyle:off
 name := "flight-data-project"
 
 homepage := Some(url("https://github.com/alimuzaffarkhan/flight-data-project"))
@@ -9,6 +8,8 @@ organization := "au.com.crixxi"
 version := "0.1"
 
 scalaVersion := "2.12.12"
+
+lazy val scriptClasspath = Seq("*")
 
 // https://mvnrepository.com/artifact/org.apache.spark/spark-core
 libraryDependencies += "org.apache.spark" %% "spark-core" % "3.0.1" % "provided"
@@ -42,4 +43,3 @@ assemblyMergeStrategy in assembly := {
   case PathList("META-INF", xs @ _*) => MergeStrategy.discard
   case x                             => MergeStrategy.first
 }
-// scalastyle:on
