@@ -3,7 +3,8 @@ package au.com.crixxi.flightdataproject
 import au.com.crixxi.flightdataproject.config.{
   ApplicationConf,
   ConfigLoader,
-  DataConf
+  DataConf,
+  JobConf
 }
 import au.com.crixxi.flightdataproject.spark.FlightDataSparkSession
 import com.typesafe.scalalogging.LazyLogging
@@ -19,6 +20,9 @@ trait FlightDataApplication
 
   lazy val dataConf =
     ConfigLoader("data-conf", "default.conf").loadOrThrow[DataConf]
+
+  lazy val jobConf = ConfigLoader("job-conf", "default.conf")
+    .loadOrThrow[JobConf]
 
   override val sparkOptions = applicationConfig.sparkConfiguration
   override val appName: Option[String] = Some(applicationConfig.appName)
